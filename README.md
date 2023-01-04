@@ -11,7 +11,7 @@
   </a>
 </p>
 
-> Django application to deepen interpersonal relations
+> REACT application to deepen interpersonal relations
 
 ### 🏠 [Homepage](https://github.com/PanOscar/FriendZone-App)
 
