@@ -38,7 +38,7 @@ const ChatContainer = ({user, filteredGenderedUsers, swiped, outOfFrame, lastDir
                     <button className="option" onClick={() => {
                         setMatchedUser(null);
                         setCard(true)
-                    }}>Card</button>
+                    }}>Swipes</button>
                 }
             </div>
             {card && !matchedUser && windowSize[0] <= 479 &&
