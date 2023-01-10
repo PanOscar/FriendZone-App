@@ -27,7 +27,7 @@ const ChatContainer = ({user, filteredGenderedUsers, swiped, outOfFrame, lastDir
         <div className="chat-container">
             <ChatHeader user={user}/>
 
-            <div>
+            <div className="multi-button">
                 <button className="option" onClick={() => {
                     setMatchedUser(null);
                     setCard(null)
