@@ -1,4 +1,4 @@
-const Chat = ({descendingOrderMessages, Username}) => {
+const Chat = ({descendingOrderMessages, Username, messagesEndRef}) => {
 
     return (
         <>
@@ -18,6 +18,7 @@ const Chat = ({descendingOrderMessages, Username}) => {
                         </div>
                     </div>
                 ))}
+                <div className="ref" ref={messagesEndRef}></div>
             </div>
         </>
     )

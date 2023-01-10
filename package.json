@@ -5,6 +5,7 @@
   "proxy": "https://fza-auth-laravel.herokuapp.com/user/",
   "dependencies": {
     "@react-spring/web": "^9.6.1",
+    "@stomp/stompjs": "^6.1.2",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.3",
     "@testing-library/user-event": "^13.5.0",
@@ -16,14 +17,18 @@
     "react-dom": "^17.0.2",
     "react-router-dom": "^6.2.1",
     "react-scripts": "^5.0.1",
+    "react-stomp": "^5.1.0",
     "react-tinder-card": "^1.6.2",
+    "sockjs-client": "^1.6.1",
+    "stompjs": "^2.3.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "node --max_old_space_size=2560 node_modules/.bin/react-scripts start",
+    "build": "node --max_old_space_size=2560 node_modules/.bin/react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "react-s": "react-scripts start"
   },
   "eslintConfig": {
     "extends": [

@@ -367,9 +367,18 @@ nav .logo-container .logo {
     flex-direction: row-reverse;
 }
 
+.chat-display .ref {
+    clear: both;
+}
+
 .chat-display .me .chat-context {
     max-width: 55%;
     float: left;
+}
+
+.chat-display .from .chat-context {
+    max-width: 55%;
+    float: right;
 }
 
 .chat-bubble span {

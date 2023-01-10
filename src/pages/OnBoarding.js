@@ -33,7 +33,6 @@ const OnBoarding = () => {
     let navigate = useNavigate()
 
     const handleSubmit = async (e) => {
-        console.log('submitted')
         e.preventDefault()
         try {
             const response = await axios.put('https://uwo2besei9.execute-api.us-east-1.amazonaws.com/prod/user/update/' + cookies.Username,
@@ -60,8 +59,8 @@ const OnBoarding = () => {
     }
 
     const handleChange = (e) => {
-        console.log('e', e)
-        const value = e.target?.type ? e.target.type === "checkbox" ? e.target.checked : e.target.value : e
+        const typePresent = e.target?.type === "checkbox" ? e.target?.checked : e?.target.value
+        const value = e.target?.type ? typePresent : e
         const name = e.target?.name ? e.target.name : 'birthday'
         if (name === 'birthday') {
             setStartDate(`${value.getFullYear()}-${value.getMonth() + 1}-${value.getDate()}`)

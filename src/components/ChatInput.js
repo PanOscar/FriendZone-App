@@ -1,19 +1,44 @@
 import {useState} from 'react'
 import axios from 'axios'
 
-const ChatInput = ({user, clickedUser, getUserMessages, getClickedUsersMessages}) => {
+const ChatInput = ({
+                       user,
+                       stompClient,
+                       messageData,
+                       setMessageData,
+                       clickedUser,
+                       getUserMessages,
+                       getClickedUsersMessages
+                   }) => {
     const [textArea, setTextArea] = useState("")
     const Username = user?.username
     const clickedUsername = clickedUser?.username
 
+    const handleMessage = (event) => {
+        const {value} = event.target;
+        setMessageData({...messageData, "message": value});
+    }
+    const keyPress = (e) => {
+        if (e.keyCode === 13) {
+            e.preventDefault()
+            addMessage(e.target.value)
+        }
+    }
     const addMessage = async () => {
         const message = {
             fromUsername: Username,
             toUsername: clickedUsername,
             message: textArea
         }
+        if (textArea === "") {
+            return
+        }
+        if (stompClient) {
+            stompClient.send("/app/message", {}, JSON.stringify(message));
+            setMessageData({...messageData, "message": ""});
+        }
         try {
-            await axios.post('https://uwo2besei9.execute-api.us-east-1.amazonaws.com/prod/messages/newMessage', message, {
+            const response = await axios.post('https://uwo2besei9.execute-api.us-east-1.amazonaws.com/prod/messages/newMessage', message, {
                 headers: {
                     'Content-Type': 'application/json'
                 }
@@ -29,8 +54,11 @@ const ChatInput = ({user, clickedUser, getUserMessages, getClickedUsersMessages}
 
     return (
         <div className="chat-input">
-            <textarea value={textArea} onChange={(e) => setTextArea(e.target.value)}/>
-            <button className="secondary-button" onClick={addMessage}>Submit</button>
+                <textarea onKeyDown={keyPress} value={textArea} onChange={(e) => {
+                    handleMessage(e)
+                    setTextArea(e.target.value)
+                }}/>
+            <button className="secondary-button" type="submit" onClick={addMessage}>Submit</button>
         </div>
     )
 }

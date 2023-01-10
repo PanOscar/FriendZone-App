@@ -14,9 +14,6 @@ const AuthModal = ({setShowModal, isSignUp}) => {
 
     let navigate = useNavigate()
 
-    console.log(email, password, confirmPassword)
-
-
     const handleClick = () => {
         setShowModal(false)
     }
