@@ -32,6 +32,10 @@ const OnBoarding = () => {
 
     let navigate = useNavigate()
 
+
+    if (!cookies.Username) {
+        navigate("/")
+    }
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {

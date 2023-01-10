@@ -256,8 +256,11 @@ nav .logo-container .logo {
 }
 
 .card {
+    margin-top: 20px;
+    margin-bottom: 20px;
     width: 400px;
-    height: 650px;
+    height: 100vh;
+    max-height: 650px;
     border-radius: 30px;
     background-size: cover;
     background-position: center;
@@ -280,6 +283,7 @@ nav .logo-container .logo {
     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
     width: 30%;
+    min-width: 300px;
     text-align: left;
     z-index: 1;
 }
@@ -440,3 +444,48 @@ nav .logo-container .logo {
     color: black;
 }
 
+@media (max-width: 479px) {
+    .chat-container {
+        width: 100vw;
+    }
+
+    .dashboard > .swipe-container {
+        display: none;
+    }
+
+    .primary-title {
+        font-size: 25px;
+    }
+
+    .primary-company {
+        font-size: 45px;
+    }
+
+    .auth-modal {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .secondary-button {
+        height: 50px;
+    }
+
+    .onboarding form section {
+        width: 90%;
+    }
+
+    .onboarding form {
+        display: block;
+    }
+
+    .dashboard .swipe-container {
+        width: 100%;
+    }
+
+    .card {
+        margin-left: 20px;
+        width: 80vh;
+        height: 90vh;
+        max-height: 400px;
+    }
+}

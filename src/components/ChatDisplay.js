@@ -5,8 +5,7 @@ import {useEffect, useRef, useState} from "react"
 import {over} from 'stompjs';
 import SockJS from 'sockjs-client';
 
-const SOCKET_URL = 'ws://fza-chat.herokuapp.com/ws-message';
-var stompClient = null;
+let stompClient = null;
 
 const ChatDisplay = ({user, matchedUser}) => {
     const Username = user?.username
@@ -53,7 +52,7 @@ const ChatDisplay = ({user, matchedUser}) => {
 
         getClickedUsersMessages()
         getUsersMessages()
-        window.fetch()
+        window.fetch("x").then(r => r)
     }
 
     const onError = (err) => {

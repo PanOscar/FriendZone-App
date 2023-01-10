@@ -85,6 +85,16 @@ const AuthModal = ({setShowModal, isSignUp}) => {
             <h2>{isSignUp ? 'CREATE ACCOUNT' : 'LOG IN'}</h2>
             <p>By clicking Log In, you agree to our terms. Learn how we process your data in our Privacy Policy and
                 Cookie Policy.</p>
+            {isSignUp &&
+                <div>
+                    <h4>Password should contain:</h4>
+                    <ul>
+                        <li>Min 8 characters</li>
+                        <li>At least 1 special character</li>
+                        <li>At least 1 Uppercase</li>
+                    </ul>
+                </div>
+            }
             <form onSubmit={handleSubmit}>
                 {isSignUp && <input
                     type="text"
@@ -108,6 +118,7 @@ const AuthModal = ({setShowModal, isSignUp}) => {
                     id="password"
                     name="password"
                     placeholder="password"
+                    pattern="(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}"
                     required={true}
                     onChange={(e) => setPassword(e.target.value)}
                 />
@@ -115,6 +126,7 @@ const AuthModal = ({setShowModal, isSignUp}) => {
                     type="password"
                     id="password-check"
                     name="password-check"
+                    pattern="(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}"
                     placeholder="confirm password"
                     required={true}
                     onChange={(e) => setConfirmPassword(e.target.value)}
