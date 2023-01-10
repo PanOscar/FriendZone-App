@@ -59,7 +59,7 @@ const OnBoarding = () => {
     }
 
     const handleChange = (e) => {
-        const typePresent = e.target?.type === "checkbox" ? e.target?.checked : e?.target.value
+        const typePresent = e.target?.type === "checkbox" ? e.target?.checked : e.target?.value
         const value = e.target?.type ? typePresent : e
         const name = e.target?.name ? e.target.name : 'birthday'
         if (name === 'birthday') {

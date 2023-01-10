@@ -2,7 +2,6 @@
   "name": "tinder",
   "version": "1.0.0",
   "private": true,
-  "proxy": "https://fza-auth-laravel.herokuapp.com/user/",
   "dependencies": {
     "@react-spring/web": "^9.6.1",
     "@stomp/stompjs": "^6.1.2",
