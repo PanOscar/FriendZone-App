@@ -48,12 +48,14 @@ const ChatContainer = ({user, filteredGenderedUsers, swiped, outOfFrame, lastDir
                             <TinderCard
                                 className="swipe"
                                 key="tak"
-                                onSwipe={() => console.log("No matches")}
                                 onCardLeftScreen={() => console.log("No matches")}>
                                 <div
                                     style={{backgroundImage: "url(" + filteredGenderedUsers.photo + ")"}}
                                     className="card">
-                                    <h3>No matches</h3>
+                                    <div
+                                        className="half-background">
+                                        <h3>No more users to match</h3>
+                                    </div>
                                 </div>
                             </TinderCard>
                         }
@@ -61,12 +63,18 @@ const ChatContainer = ({user, filteredGenderedUsers, swiped, outOfFrame, lastDir
                             <TinderCard
                                 className="swipe"
                                 key={genderedUser.username}
-                                onSwipe={(dir) => swiped(dir, genderedUser.username)}
-                                onCardLeftScreen={() => outOfFrame(genderedUser.first_name)}>
+                                onCardLeftScreen={(dir) => swiped(dir, genderedUser.username)}>
                                 <div
                                     style={{backgroundImage: "url(" + genderedUser.photo + ")"}}
-                                    className="card">
-                                    <h3>{genderedUser.first_name} {genderedUser.last_name}</h3>
+                                    className="card clearfix">
+                                    <div
+                                        className="half-background">
+                                        <h3>{genderedUser.first_name} {genderedUser.last_name}</h3>
+                                        <span><b>About:</b> {genderedUser.about}</span>
+                                        {genderedUser?.gender_reveal &&
+                                            <span><b>Gender:</b> {genderedUser?.gender}</span>
+                                        }
+                                    </div>
                                 </div>
                             </TinderCard>
                         )}

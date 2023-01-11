@@ -83,8 +83,7 @@ const AuthModal = ({setShowModal, isSignUp}) => {
             </svg>
 
             <h2>{isSignUp ? 'CREATE ACCOUNT' : 'LOG IN'}</h2>
-            <p>By clicking Log In, you agree to our terms. Learn how we process your data in our Privacy Policy and
-                Cookie Policy.</p>
+
             {isSignUp &&
                 <div>
                     <h4>Password should contain:</h4>

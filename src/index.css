@@ -37,18 +37,12 @@
     margin-left: calc(var(--border-size) * -1);
 }
 
-.multi-button button:hover:enabled,
-.multi-button button:focus:enabled {
+.multi-button button:hover:enabled {
     flex-grow: 2;
     color: white;
     outline: none;
     text-shadow: none;
     background-color: var(--color-secondary);
-}
-
-.multi-button button:focus:enabled {
-    outline: var(--border-size) dashed var(--color-primary);
-    outline-offset: calc(var(--border-size) * -3);
 }
 
 .multi-button:hover button:focus:not(:hover):enabled {
@@ -203,6 +197,7 @@ nav .logo-container .logo {
     padding: 8px;
     margin: 8px;
     font-size: 17px;
+    border-radius: 5px;
 }
 
 .forgot {
@@ -326,11 +321,29 @@ nav .logo-container .logo {
     border-radius: 30px;
     background-size: cover;
     background-position: center;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    color: white;
+    user-select: none;
     box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
+}
+
+.card .half-background {
+    width: 100%;
+    display: block;
+    height: 20%;
+    background-color: rgba(0, 0, 0, .6);
+    margin: auto auto 0 auto;
+    min-height: 90px;
 }
 
 .card h3 {
     margin-top: 0;
+}
+
+.card span {
+    display: block;
 }
 
 .dashboard .swipe-info {
@@ -342,8 +355,8 @@ nav .logo-container .logo {
 /*-------- Chat Container --------*/
 .chat-container {
     background-color: rgb(255, 255, 255);
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
-    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0 6px 24px 0,
+    rgba(0, 0, 0, 0.08) 0 0 0 1px;
     width: 30%;
     min-width: 300px;
     text-align: left;
